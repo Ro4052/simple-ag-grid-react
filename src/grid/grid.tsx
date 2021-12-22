@@ -20,7 +20,7 @@ export const Grid = (): JSX.Element => {
       <span>
         <strong>Data version:</strong> {version}
       </span>
-      <AgGridReact className="ag-theme-alpine" rowData={rows}>
+      <AgGridReact className="ag-theme-alpine" rowData={rows} suppressScrollOnNewData>
         <AgGridColumn field="id" />
         <AgGridColumn field="name" />
         <AgGridColumn field="dob" />
