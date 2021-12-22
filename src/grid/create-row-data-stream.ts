@@ -24,9 +24,22 @@ const names = [
 const getRandomIntWithMax = (max: number): number => Math.floor(Math.random() * (max + 1));
 
 const minAge = new Date('1999/12/31').getTime();
+
+const padInteger = (num: number): string => {
+  if (num >= 10) {
+    return `${num}`;
+  }
+
+  return `0${num}`;
+}
+
 const getRandomAgeString = (): string => {
   const dob = new Date(getRandomIntWithMax(minAge));
-  return `${dob.getUTCFullYear()}/${dob.getUTCMonth()}/${dob.getUTCDate()}`
+  const year = dob.getUTCFullYear();
+  const month = padInteger(dob.getUTCMonth() + 1);
+  const day = padInteger(dob.getUTCDate());
+  
+  return `${year}/${month}/${day}`
 }
 
 export const createRowDataStream = (numberOfRows: number, dataInterval: number): Observable<RowData> => {
