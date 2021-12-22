@@ -1,6 +1,7 @@
 import type { Observable } from 'rxjs';
 import { interval } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import nameGenerator from 'random-names-generator';
 
 export interface Row {
   id: number;
@@ -13,13 +14,6 @@ export interface RowData {
   rows: Row[];
   version: number;
 }
-
-const names = [
-  'Jeff',
-  'Sarah',
-  'Bob',
-  'Alice'
-];
 
 const getRandomIntWithMax = (max: number): number => Math.floor(Math.random() * (max + 1));
 
@@ -45,7 +39,7 @@ const getRandomAgeString = (): string => {
 export const createRowDataStream = (numberOfRows: number, dataInterval: number): Observable<RowData> => {
   const initialRows = [...Array(numberOfRows)].map<Row>((_, i) => ({
     id: i,
-    name: names[getRandomIntWithMax(names.length - 1)],
+    name: nameGenerator.random(),
     dob: getRandomAgeString(),
     random: getRandomIntWithMax(100)
   }));
