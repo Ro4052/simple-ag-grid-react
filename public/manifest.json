@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Simple Grid",
+  "name": "Simple Ag Grid React",
   "icons": [
     {
       "src": "favicon.ico",
